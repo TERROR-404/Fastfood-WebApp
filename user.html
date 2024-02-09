@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <form action="">
+        <label for="locations">Location:</label>
+        <select name="locations" id="locations">
+            <option value="prague">Prague</option>
+            <option value="brno">Brno</option>
+            <option value="london">London</option>
+            <option value="south park">South Park</option>
+        </select>
+    </form>
+    <table>
+        <tr>
+            <th>Orders</th>
+            <th>State</th>
+        </tr>
+        <tr id="ready">
+            <th>12</th>
+            <th>ready</th>
+        </tr>
+        <tr id="preparing">
+            <th>1</th>
+            <th>preparing</th>
+        </tr>
+    </table>
+    <script src="user.js"></script>
+</body>
+</html>

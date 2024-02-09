@@ -1,0 +1,49 @@
+body{/*psát dokumentaci, backend v express.js, frontend v čem chci, databáze v operační paměti*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(156, 156, 156);
+    color: black;
+    font-weight: 700;
+    font-size: 30px;
+    width: 100%;
+    height: 100vh;
+    row-gap: 20px;
+    padding-top: 20px;
+}
+form{
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+}
+table{
+    width: 90%;
+    border: 4px black solid;
+}
+tr{
+    background-color: white;
+    width: 100%;
+    line-height: 70px;
+}
+th{
+    width: 50%;
+    text-align: center;
+}
+tr:first-child{
+    background-color: white;
+    font-size: 60px;
+    border-bottom: 4px solid black;
+}
+th:first-child{
+    border-right: 4px solid black;
+}
+#preparing{
+    background-color: rgb(255, 123, 0);
+}
+#ready{
+    background-color: green;
+}
+#completed{
+    background-color: red;
+}
