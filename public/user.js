@@ -1,6 +1,10 @@
 let table = document.querySelector("tbody");
-setInterval(() => {
-    let location = document.querySelector("select").value;
+let locationSelect = document.querySelector("select");
+
+
+function refreshFunction() {
+    let location = locationSelect.value;
+    let locationsOptions = document.getElementsByTagName("option");
     fetch("http://localhost:8080/order", {
             mode: "cors",
             method: "GET"
@@ -19,6 +23,24 @@ setInterval(() => {
                     </tr>`
                 }
             }
+            let serLocs = [];
+            for (const [key, value] of Object.entries(data)) {
+                serLocs.push(key);
+            }
+            optLocs = [];
+            for (const locHere of locationsOptions) {
+                optLocs.push(locHere.value);
+            }
+            console.log(serLocs);
+            console.log(optLocs);
+            if (serLocs.length != optLocs.length) {
+                locationSelect.innerHTML = "";
+                for (const loc of serLocs) {
+                    locationSelect.innerHTML += `<option value="${loc}">${loc}</option>`
+                }
+            }
 
         })
-  }, "1000");
+}
+refreshFunction();
+setInterval(() => {refreshFunction()}, "1000");

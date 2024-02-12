@@ -1,10 +1,10 @@
-import express from "express";
+import express, { response } from "express";
 
 const router = express.Router();
 
 let orders = {
     
-    "prague":{
+    "Prague":{
         "greatestId": 2,
         "orders":[
             {
@@ -19,7 +19,9 @@ let orders = {
             }
         ]
     },
-    "london":{
+    "London":{
+        "greatestId": 0,
+        "orders": []
     }
 }
 
@@ -81,12 +83,13 @@ router.patch("/", (req, res) => {
     }
     res.send(req.body)
 });
-router.delete("/", (req, res) => {
+router.delete("/", (req, res, next) => {
     for (const order in orders[req.body.location].orders) {
         if (orders[req.body.location].orders[order].id == req.body.id) {
             orders[req.body.location].orders.splice(order, 1);
         }
     }
+    response.send(req.body);
 });
 
 
@@ -98,7 +101,12 @@ router.post("/location", (req, res) => {
     res.send(req.body)
 });
 router.delete("/location", (req, res) => {
-    delete orders[req.body.location]
+    for (const loc in orders) {
+        console.log(loc);
+        if (loc == req.body.location) {
+            delete orders[loc];
+        }
+    }
     res.send(req.body);
 });
 

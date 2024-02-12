@@ -36,7 +36,6 @@ addLocation.addEventListener("click", () =>{
     })
     .then(response => response.json())
     .then(data => {
-        locationsSelect.innerHTML += `<option value="${data.location}">${data.location}</option>`
     })
 });
 
@@ -51,13 +50,12 @@ deleteLocation.addEventListener("click", () =>{
             body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => {
-        locationsSelect.innerHTML += `<option value="${data.location}">${data.location}</option>`
-    })
+    .then(data => {})
 });
 
 function refreshFunction() {
     let location = document.querySelector("select").value;
+    let locationsOptions = document.getElementsByTagName("option");
     fetch("http://localhost:8080/order", {
         mode: "cors",
         method: "GET"
@@ -95,6 +93,24 @@ function refreshFunction() {
                         })
             });
         }
+
+        let serLocs = [];
+        for (const [key, value] of Object.entries(data)) {
+            serLocs.push(key);
+        }
+        optLocs = [];
+        for (const locHere of locationsOptions) {
+            optLocs.push(locHere.value);
+        }
+        console.log(serLocs);
+        console.log(optLocs);
+        if (serLocs.length != optLocs.length) {
+            locationsSelect.innerHTML = "";
+            for (const loc of serLocs) {
+                locationsSelect.innerHTML += `<option value="${loc}">${loc}</option>`
+            }
+        }
+
     })
 };
 
