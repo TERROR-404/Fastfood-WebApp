@@ -34,6 +34,10 @@ addLocation.addEventListener("click", () =>{
             method: "POST",
             body: JSON.stringify(data)
     })
+    .then(response => response.json())
+    .then(data => {
+        locationsSelect.innerHTML += `<option value="${data.location}">${data.location}</option>`
+    })
 });
 
 deleteLocation.addEventListener("click", () =>{
@@ -46,6 +50,10 @@ deleteLocation.addEventListener("click", () =>{
             method: "DELETE",
             body: JSON.stringify(data)
     })
+    .then(response => response.json())
+    .then(data => {
+        locationsSelect.innerHTML += `<option value="${data.location}">${data.location}</option>`
+    })
 });
 
 function refreshFunction() {
@@ -56,12 +64,6 @@ function refreshFunction() {
     })
     .then(response => response.json())
     .then(data => {
-
-        /*locationsSelect.innerHTML = "";
-        for (const loc of Object.keys(data)) {
-            console.log(loc);
-            locationsSelect.innerHTML += `<option value="${loc}">${loc}</option>`
-        }*/
 
         table.innerHTML = "";
     

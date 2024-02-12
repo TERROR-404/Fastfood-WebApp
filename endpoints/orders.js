@@ -91,7 +91,16 @@ router.delete("/", (req, res) => {
 });
 
 
-router.post("/location", (req, res) => {res.send(req.body)});
-router.delete("/location", (req, res) => {res.send(req.body)});
+router.post("/location", (req, res) => {
+    orders[req.body.location] = {
+        "greatestOrder": 0,
+        "orders": {}
+    };
+    res.send(req.body)
+});
+router.delete("/location", (req, res) => {
+    delete orders[req.body.location]
+    res.send(req.body);
+});
 
 export default router;
