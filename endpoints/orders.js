@@ -53,7 +53,6 @@ router.post("/", (req, res) => {
                 ]
             };
         }
-        console.log(orders);
 
 });
 router.patch("/", (req, res) => {
@@ -68,13 +67,13 @@ router.patch("/", (req, res) => {
                     break;
                 case "completed":
                     fetch("http://localhost:8080/order", {
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            mode: "cors",
-                            method: "DELETE",
-                            body: JSON.stringify(req.body)
-                        })
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        mode: "cors",
+                        method: "DELETE",
+                        body: JSON.stringify(req.body)
+                    })
                     break;
             }
             break;
@@ -93,8 +92,8 @@ router.delete("/", (req, res) => {
 
 router.post("/location", (req, res) => {
     orders[req.body.location] = {
-        "greatestOrder": 0,
-        "orders": {}
+        "greatestId": 0,
+        "orders": []
     };
     res.send(req.body)
 });
