@@ -29,7 +29,7 @@ th{
     width: 33%;
     text-align: center;
 }
-tr:first-child{
+thead > tr{
     background-color: white;
     font-size: 60px;
     border-bottom: 4px solid black;
@@ -38,12 +38,12 @@ th:nth-child(2){
     border-right: 4px solid black;
     border-left: 4px solid black;
 }
-#preparing{
+.preparing{
     background-color: rgb(255, 123, 0);
 }
-#ready{
+.ready{
     background-color: green;
 }
-#completed{
+.completed{
     background-color: red;
 }

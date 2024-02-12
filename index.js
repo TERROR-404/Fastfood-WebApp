@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import orderRouter from "./endpoints/orders.js";
+import Router from "./endpoints/orders.js";
 const app = express();
 
 app.use(cors({
@@ -9,7 +9,7 @@ app.use(cors({
 }));
 app.use("/", express.static("public"));
 app.use(bodyParser.json())
-app.use("/order", orderRouter);
+app.use("/order", Router);
 
 app.listen(8080, () => {
     console.log("Server loaded.");

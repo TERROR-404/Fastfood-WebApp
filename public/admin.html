@@ -20,8 +20,8 @@
             </select>
         </article>
         <article class="addingLocation">
-            <label for="addDeleteLocation">Add or delete location: </label>
-            <input name="addDeleteLocation" type="text">
+            <label for="addDeleteLocation">Add or delete location: </label> <!-- napište název lokace, kterou chcete přidat/odebrat -->
+            <input name="locationTextbox" type="text">
             <input id="add" type="button" value="Add location">
             <input id="delete" type="button" value="Delete location">
         </article>
@@ -32,24 +32,15 @@
         </article>
         <article class="ordersTable">
             <table>
-                <tr>
-                    <th>Number</th>
-                    <th>Order</th>
-                    <th>State</th>
-                    <th>Change state</th>
-                </tr>
-                <tr id="ready">
-                    <th>12</th>
-                    <th>banana</th>
-                    <th>ready</th>
-                    <th><input id="next" type="button" value="next"></th>
-                </tr>
-                <tr id="preparing">
-                    <th>1</th>
-                    <th>milk</th>
-                    <th>preparing</th>
-                    <th><input id="next" type="button" value="next"></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Order</th>
+                        <th>State</th>
+                        <th>Change state</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
         </article>
     </form>

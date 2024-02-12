@@ -59,12 +59,12 @@ th:nth-child(2){
 th:nth-child(3){
     border-right: 4px solid black;
 }
-#preparing{
+.preparing{
     background-color: rgb(255, 123, 0);
 }
-#ready{
+.ready{
     background-color: green;
 }
-#completed{
+.completed{
     background-color: red;
 }
