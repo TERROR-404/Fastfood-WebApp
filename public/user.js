@@ -15,13 +15,20 @@ function refreshFunction() {
             table.innerHTML = "";
 
             if (data[location] != undefined) {
-                for (const order of data[location].orders) {
-                    table.innerHTML += `<tr class="${order.state}" >
-                    <th>${order.id}</th>
-                    <th>${order.text}</th>
-                    <th>${order.state}</th>
-                    </tr>`
+                function tableOrdersOrder(state) {
+                    for (const order of data[location].orders) {
+                        if (order.state == state) {
+                            table.innerHTML += `<tr class="${order.state}" >
+                            <th>${order.id}</th>
+                            <th>${order.text}</th>
+                            <th>${order.state}</th>
+                            </tr>`
+                        }
+                    }
                 }
+                tableOrdersOrder("completed");
+                tableOrdersOrder("ready");
+                tableOrdersOrder("preparing");
             }
             let serLocs = [];
             for (const [key, value] of Object.entries(data)) {
