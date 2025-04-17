@@ -1,3 +1,7 @@
+# Popis
+Toto je webová aplikace, který má sloužit jako objednávkový systém ve fastfoodu. Aplikace byla vytvořena v rámci školního úkolu.
+
+# Dokumentace
 Ve složce public jsou html soubory admin.html(je to stránka admina, pro zprávu lokací a obědnávek) a user.html(to je stránka pro uživatele, kde uživatel vidí tabulku).
   - admin.html
     - jako první je na stránce select, kterým si vybíráme, na jaké lokaci právě jsme a provádíme změny
